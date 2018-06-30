@@ -43,12 +43,14 @@ Install nvm (node version manager) :
 # curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 # sudo /home/pi/.nvm/install.sh
 ```
+Install node v8
+```
 # sudo nvm install 8
 ```
 Other method for nvm :
 ```
 # wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-
+```
 nvm usage:
 ```
 # nvm use node

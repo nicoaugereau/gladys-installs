@@ -14,5 +14,3 @@ sudo yarn install
 cp /home/pi/gladys-update/gladys-bluetooth/config.js $GLADYS_BT
 
 #sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
-
-#pm2 start /home/pi/gladys-bluetooth/app.js --name gladys-bluetooth

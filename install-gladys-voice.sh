@@ -12,11 +12,10 @@ sudo git clone https://github.com/GladysProject/gladys-voice
 cd $GLADYS_VOICE
 sudo yarn install
 
-cp /home/pi/gladys-update/gladys-voice/Gladys-API-Project-3f508873f719.json $GLADYS_VOICE/data/
-cp /home/pi/gladys-update/gladys-voice/config.js $GLADYS_VOICE/
-cp /home/pi/gladys-update/gladys-voice/index.js $GLADYS_VOICE/node_modules/sonus/index.js
-cp /home/pi/gladys-update/gladys-voice/shared.js $ROOT_FOLDER/gladys/api/hooks/speak/lib/shared.js
+cp /home/pi/gladys-installs/gladys-voice/Gladys-API-Project-3f508873f719.json $GLADYS_VOICE/data/
+cp /home/pi/gladys-installs/gladys-voice/config.js $GLADYS_VOICE/
+cp /home/pi/gladys-installs/gladys-voice/index.js $GLADYS_VOICE/node_modules/sonus/index.js
+cp /home/pi/gladys-installs/gladys-voice/shared.js $ROOT_FOLDER/gladys/api/hooks/speak/lib/shared.js
 
 mkdir $ROOT_FOLDER/gladys/cache/sounds/
 
-#pm2 start app.js --name gladys-voice

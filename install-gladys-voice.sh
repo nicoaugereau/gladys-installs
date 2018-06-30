@@ -12,10 +12,21 @@ sudo git clone https://github.com/GladysProject/gladys-voice
 cd $GLADYS_VOICE
 sudo yarn install
 
-cp /home/pi/gladys-installs/gladys-voice/Gladys-API-Project-3f508873f719.json $GLADYS_VOICE/data/
-cp /home/pi/gladys-installs/gladys-voice/config.js $GLADYS_VOICE/
-cp /home/pi/gladys-installs/gladys-voice/index.js $GLADYS_VOICE/node_modules/sonus/index.js
-cp /home/pi/gladys-installs/gladys-voice/shared.js $ROOT_FOLDER/gladys/api/hooks/speak/lib/shared.js
-
 mkdir $ROOT_FOLDER/gladys/cache/sounds/
 
+echo "Gladys Voice:"
+echo "1- Create token from Gladys / Parameters / Security"
+echo "2- Add token to /home/pi/gladys-voice/config.js"
+echo "3- Modify /home/pi/gladys-voice/node_modules/sonus/index.js"
+echo "Replace this:"
+echo " opts.resource = opts.resource || 'node_modules/gladys-voice/data/common.res'"
+echo " opts.audioGain = opts.audioGain || 2.0"
+echo " opts.language = opts.language || 'en-US' //https://cloud.google.com/speech/docs/languages"
+echo "With this:"
+echo " opts.resource = opts.resource || '/home/pi/gladys-voice/node_modules/gladys-voice/data/common.res'"
+echo " opts.audioGain = opts.audioGain || 2.0"
+echo " opts.language = opts.language || 'fr-FR' //https://cloud.google.com/speech/docs/languages"
+echo "4- Modify /home/pi/gladys/api/hooks/speak/lib/shared.js"
+echo "5- Replace ./cache/sound with this /home/pi/gladys/cache/sounds/"
+echo "6- Place your API json projet into /home/pi/gladys-voice/data/"
+echo ""

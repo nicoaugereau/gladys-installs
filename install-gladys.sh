@@ -9,12 +9,12 @@
 # grunt-cli
 
 # Modify this :
-GLADYS_VERSION=v3.7.6
+GLADYS_VERSION=v3.8.0
 MYSQL_USER="root"
 MYSQL_PASS="password"
+#
 ROOT_FOLDER="/home/pi/"
 GLADYS_FOLDER="/home/pi/gladys"
-#
 TMP_HOOK_FOLDER="/tmp/gladys_hooks"
 TMP_CACHE_FOLDER="/tmp/gladys_cache"
 BASEDIR=$(pwd)
@@ -40,13 +40,13 @@ fi
 #  install gladys 
 tar zxvf gladys-$GLADYS_VERSION-Linux-armv6l.tar.gz -C $ROOT_FOLDER
 
-# cp .env file to Gladys version (for development)
-# cp gladys.js connections to config folder
-cp $BASEDIR/gladys/gladys.js $GLADYS_FOLDER/config/
-
 # init and update npm packages 
 cd $GLADYS_FOLDER
 npm install
 # build assets
 grunt buildProd
 node init.js
+
+echo "Start Gladys with:"
+echo "pm2 /home/pi/gladys/app.js --name gladys"
+echo ""

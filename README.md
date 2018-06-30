@@ -12,11 +12,11 @@ How to
 Raspberry configuration: raspi-config
 
 Check sources :
-````
+```
 # vi /etc/apt/sources.list
 ```
 Change root password:
-````
+```
 # sudo passwd root
 ```
 

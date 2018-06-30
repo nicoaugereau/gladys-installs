@@ -11,26 +11,32 @@ function jumpto
 
 update_gladys(){
     echo "Updating Gladys..."
-    mkdir $TMP_HOOK_FOLDER
-    mkdir $TMP_CACHE_FOLDER
-    cp -r $GLADYS_FOLDER/hooks/ $TMP_HOOK_FOLDER
-    cp -r $GLADYS_FOLDER/cache/ $TMP_CACHE_FOLDER
-    # download update (-N allow to don't retrieve file unless newer than local)
-    #wget -N https://github.com/GladysProject/Gladys/releases/download/v3.6.3/gladys-v3.6.3-Linux-armv6l.tar.gz
-    if [ ! -f "gladys-$GLADYS_VERSION-Linux-armv6l.tar.gz" ];then
-        wget -N https://github.com/GladysProject/Gladys/releases/download/$GLADYS_VERSION/gladys-$GLADYS_VERSION-Linux-armv6l.tar.gz
+    # Cleaning Gladys hook folder
+    if [ -d "$TMP_HOOK_FOLDER" ];then
+        rm -rf $TMP_HOOK_FOLDER/*
     fi
-    #  install gladys 
-    tar zxvf gladys-$GLADYS_VERSION-Linux-armv6l.tar.gz -C $ROOT_FOLDER
+    # Cleaning Gladys cache folder
+    if [ -d "$TMP_CACHE_FOLDER" ];then
+        rm -rf $TMP_CACHE_FOLDER/*
+    fi
+    cp -r $GLADYS_FOLDER/hooks/* $TMP_HOOK_FOLDER
+    cp -r $GLADYS_FOLDER/cache/* $TMP_CACHE_FOLDER
     # Delete current gladys install
     if [ -d "$GLADYS_FOLDER" ];then
         rm -rf $GLADYS_FOLDER
     fi
+    # clone master version
+    cd $ROOT_FOLDER
+    git clone https://github.com/GladysProject/Gladys.git gladys
     # init and update npm packages 
     cd $GLADYS_FOLDER
     npm install
-    cp -r $TMP_HOOK_FOLDER $GLADYS_FOLDER/hooks/
-    cp -r $TMP_CACHE_FOLDER $GLADYS_FOLDER/cache/
+    mkdir $GLADYS_FOLDER/cache/sounds/
+    # init and update npm packages 
+    cd $GLADYS_FOLDER
+    npm install
+    cp -r $TMP_HOOK_FOLDER/* $GLADYS_FOLDER/hooks/
+    cp -r $TMP_CACHE_FOLDER/* $GLADYS_FOLDER/cache/
     # build assets
     grunt buildProd
     node init.js
@@ -38,7 +44,9 @@ update_gladys(){
 
 update_gladys_voice(){
     echo "Installing Gladys Voice..."
-    mkdir $TMP_VOICE_FOLDER
+    if [ -d "$TMP_VOICE_FOLDER" ];then
+        rm -rf $TMP_VOICE_FOLDER
+    fi
     cp $GLADYS_VOICE/data/*.json $TMP_VOICE_FOLDER
     cp $GLADYS_VOICE/config.js $TMP_VOICE_FOLDER/
     cp $GLADYS_VOICE/node_modules/sonus/index.js $TMP_VOICE_FOLDER
@@ -53,7 +61,9 @@ update_gladys_voice(){
 
 update_gladys_bluetooth(){
     echo "Installing Gladys Bluetooth"
-    mkdir $TMP_BT_FOLDER
+    if [ -d "$TMP_BT_FOLDER" ];then
+        rm -rf $TMP_BT_FOLDER
+    fi
     cp $GLADYS_BT/config.js $TMP_BT_FOLDER
     cd $ROOT_FOLDER
     sudo git clone https://github.com/GladysProject/gladys-bluetooth
@@ -63,9 +73,6 @@ update_gladys_bluetooth(){
     #sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 }
 
-# Modify this :
-GLADYS_VERSION=v3.8.0
-#
 ROOT_FOLDER="/home/pi/"
 GLADYS_FOLDER="/home/pi/gladys"
 GLADYS_VOICE="/home/pi/gladys-voice"

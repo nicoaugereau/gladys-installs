@@ -79,11 +79,9 @@ ROOT_FOLDER="/home/pi/"
 GLADYS_FOLDER="/home/pi/gladys"
 GLADYS_VOICE="/home/pi/gladys-voice"
 GLADYS_BT="/home/pi/gladys-bluetooth/"
-TMP_HOOK_FOLDER="/tmp/gladys_hooks"
-TMP_CACHE_FOLDER="/tmp/gladys_cache"
 BASEDIR=$(pwd)
 
-read -p "Is this a good question (y/n)? " upgrade
+read -p "Update and upgrade Raspberry (y/n)? " upgrade
 case ${upgrade:0:1} in
     y|Y )
         updade_upgrade()
@@ -94,7 +92,7 @@ case ${upgrade:0:1} in
 esac
 
 install_gladys:
-read -p "Is this a good question (y/n)? " gladys
+read -p "Install Gladys (y/n)? " gladys
 case ${gladys:0:1} in
     y|Y )
         install_gladys()
@@ -105,7 +103,7 @@ case ${gladys:0:1} in
 esac
 
 install_gladys_voice:
-read -p "Is this a good question (y/n)? " gladys_voice
+read -p "Install Gladys Voice (y/n)? " gladys_voice
 case ${gladys_voice:0:1} in
     y|Y )
         install_gladys_voice()
@@ -116,7 +114,7 @@ case ${gladys_voice:0:1} in
 esac
 
 install_gladys_bluetooth:
-read -p "Is this a good question (y/n)? " gladys_bluetooth
+read -p "Install Gladys Bluetooth (y/n)? " gladys_bluetooth
 case ${gladys_bluetooth:0:1} in
     y|Y )
         install_gladys_bluetooth()

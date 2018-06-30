@@ -23,10 +23,22 @@ Change root password:
 Getting started
 -------------
 
-Install:
+Install Gladys and/or Gladys-Voice and/or Gladys-Bluetooth:
 ```
 # cd /home/pi/gladys-installs
 # sudo ./install.sh
+```
+
+Start Gladys, Gladys-Voice, Gladys-Bluetooth:
+```
+# cd /home/pi/gladys-installs
+# sudo ./pm2-gladys.sh
+```
+
+Install Gladys and/or Gladys-Voice and/or Gladys-Bluetooth:
+```
+# cd /home/pi/gladys-installs
+# sudo ./update.sh
 ```
 
 If key expired when update or upgrade:
@@ -37,28 +49,6 @@ pub   4096R/BE1DB1F1 2011-03-29 [expired: 2014-03-28]
 Update:
 ```
 # apt-key adv --recv-keys --keyserver keys.gnupg.net BE1DB1F1
-```
-Install nvm (node version manager) :
-```
-# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-# sudo /home/pi/.nvm/install.sh
-```
-Install node v8
-```
-# sudo nvm install 8
-```
-Other method for nvm :
-```
-# wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-```
-nvm usage:
-```
-# nvm use node
-```
-
-update all npm packages:
-```
-# sudo npm update -g
 ```
 
 # Database
@@ -230,6 +220,29 @@ Create token Parameters / Security and add:
 ```
 
 Detect user presence: https://gladysproject.com/fr/article/detecter-presence-porte-cle-bluetooth
+
+#Install nvm (node version manager)
+```
+# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+# sudo /home/pi/.nvm/install.sh
+```
+Install node v8
+```
+# sudo nvm install 8
+```
+Other method for nvm :
+```
+# wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+```
+nvm usage:
+```
+# nvm use node
+```
+
+update all npm packages:
+```
+# sudo npm update -g
+```
 
 # Debug
 Find what missing in database.<br>

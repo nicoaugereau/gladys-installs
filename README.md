@@ -156,7 +156,7 @@ Tutorial:
 https://community.gladysproject.com/t/tutoriel-gladys-et-la-reconnaissance-vocale/1419
 
 
-CreCreate token Parameters / Security and add to:
+Create token Parameters / Security and add to:
 /home/pi/gladys-voice/config.js
 
 Modify :
@@ -188,7 +188,7 @@ If message : Unable to reach user with service speak<br>
 Force presence with box Events
 
 
-# Configuration carte son
+# Sound card onfiguration
 
 List sound cards: aplay -l<br>
 Find sound card number: cat /proc/asound/cards

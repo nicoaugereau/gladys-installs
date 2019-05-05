@@ -143,7 +143,7 @@ Check status:
 # Gladys-voice
 
 Tutorial:
-https://community.gladysproject.com/t/tutoriel-gladys-et-la-reconnaissance-vocale/1419
+https://community.gladysassistant.com/t/tutoriel-gladys-et-la-reconnaissance-vocale/1419
 
 
 Create token Parameters / Security and add to:
@@ -219,7 +219,7 @@ Create token Parameters / Security and add:
 # /home/pi/gladys-bluetooth/config.js 
 ```
 
-Detect user presence: https://gladysproject.com/fr/article/detecter-presence-porte-cle-bluetooth
+Detect user presence: https://gladysassistant.com/fr/article/detecter-presence-porte-cle-bluetooth
 
 #Install nvm (node version manager)
 ```
